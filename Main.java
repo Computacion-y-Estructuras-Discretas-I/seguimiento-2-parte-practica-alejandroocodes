@@ -1,6 +1,9 @@
+import javax.naming.CompoundName;
 import java.util.*;
 
 public class Main {
+
+    private static CompoundName activos;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -29,7 +32,21 @@ public class Main {
     public static TreeSet<Integer> jugadoresActivos(int[] servidorA,
                                                      int[] servidorB,
                                                      int[] baneados) {
-        // TODO: implemente este método
-        return new TreeSet<>();
+        TreeSet<Integer> activos = new TreeSet<>();
+
+        for (int id : servidorA) {
+            activos.add(id);
+        }
+
+        for (int id : servidorB){
+            activos.add(id);
+        }
+
+        for (int id : baneados){
+            activos.remove(id);
+        }
+
+
+        return activos;
     }
 }
